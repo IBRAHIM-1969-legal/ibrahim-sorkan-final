@@ -1,161 +1,781 @@
 <!DOCTYPE html>
-<html lang="ku">
+<html lang="ckb" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ابراهیم حمدامین سۆرکان - ڕاوێژکاری یاسایی</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: "Tahoma", Arial, sans-serif;
-      margin: 0;
-      background: #f4f7fb;
-      color: #333;
-      line-height: 1.8;
-    header {
-      background: #003366;
-      color: white;
-      padding: 30px;
-      text-align: center;
-    header h1 { margin: 0; font-size: 28px; }
-    header p { margin: 5px 0 0; font-size: 18px; }
+      font-family: 'Noto Sans Arabic', sans-serif;
+      direction: rtl;
+      background: #f9f9f9;
+      color: #222;
+    }
 
-    section {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    h2 {
-      color: #003366;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 5px;
-
-    .btn {
-      display: inline-block;
-      padding: 10px 15px;
-      margin: 5px;
-      background: #003366;
-      color: white;
+    /* ===== NAVBAR ===== */
+    nav {
+      background: #1a1a2e;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav .logo {
+      color: #e2b96f;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      color: #fff;
       text-decoration: none;
-      border-radius: 5px;
-      transition: 0.3s
-    .btn:hover { background: #0055aa; }
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #e2b96f; }
 
-    #projects div {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin: 10px 0;
-      background: #fdfdfd;
-      border-radius: 8px
-    #projects h3 { margin: 0; color: #003366; }
-    #projects p { margin: 5px 0 0; }
-    
-    footer {
-      background: #003366;
+    /* ===== HERO ===== */
+    #hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
       color: white;
       text-align: center;
-      padding: 15px;
-      margin-top: 30p
+      padding: 100px 20px 80px;
+    }
+    #hero .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: #e2b96f;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #1a1a2e;
+      font-weight: 700;
+    }
+    #hero h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #e2b96f;
+    }
+    #hero p.title {
+      font-size: 1.1rem;
+      color: #a8c0ff;
+      margin-bottom: 8px;
+    }
+    #hero p.sub {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      padding: 70px 60px;
+    }
+    #about h2 {
+      font-size: 1.8rem;
+      color: #1b5e20;
+      margin-bottom: 25px;
+      border-right: 5px solid #388e3c;
+      padding-right: 15px;
+    }
+    #about p {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: #2e2e2e;
+      max-width: 900px;
+    }
+
+    /* ===== PROJECTS & WRITINGS ===== */
+    #projects {
+      background: linear-gradient(135deg, #fff8e1, #ffe082);
+      padding: 70px 60px;
+    }
+    #projects h2 {
+      font-size: 1.8rem;
+      color: #e65100;
+      margin-bottom: 25px;
+      border-right: 5px solid #ff6f00;
+      padding-right: 15px;
+    }
+    .projects-toolbar {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .btn-add {
+      background: #ff6f00;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .btn-add:hover { background: #e65100; }
+    .btn-add-project {
+      background: #1b5e20;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .btn-add-project:hover { background: #388e3c; }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card h3 {
+      font-size: 1.1rem;
+      color: #e65100;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .card .read-more {
+      display: inline-block;
+      margin-top: 12px;
+      color: #ff6f00;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+    .card .card-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .tag-writing { background: #fff3e0; color: #e65100; }
+    .tag-project { background: #e8f5e9; color: #1b5e20; }
+    .card .delete-btn {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #ffebee;
+      border: none;
+      color: #c62828;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 16px;
+      padding: 35px;
+      width: 90%;
+      max-width: 500px;
+      direction: rtl;
+    }
+    .modal h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+    .modal input, .modal textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      direction: rtl;
+    }
+    .modal textarea { height: 120px; resize: vertical; }
+    .modal-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .btn-save {
+      background: #0f3460;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .btn-cancel {
+      background: #eee;
+      color: #333;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    /* Read More Modal */
+    .read-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .read-modal-overlay.active { display: flex; }
+    .read-modal {
+      background: white;
+      border-radius: 16px;
+      padding: 35px;
+      width: 90%;
+      max-width: 650px;
+      direction: rtl;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .read-modal h3 { color: #e65100; margin-bottom: 15px; font-size: 1.4rem; }
+    .read-modal p { line-height: 2; color: #333; }
+    .read-modal .close-read {
+      margin-top: 20px;
+      background: #0f3460;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* ===== CONTRACTS ===== */
+    #contracts {
+      background: linear-gradient(135deg, #e3f2fd, #90caf9);
+      padding: 70px 60px;
+    }
+    #contracts h2 {
+      font-size: 1.8rem;
+      color: #0d47a1;
+      margin-bottom: 25px;
+      border-right: 5px solid #1565c0;
+      padding-right: 15px;
+    }
+    .contracts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .contract-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .contract-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .contract-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .contract-card h3 { color: #0d47a1; font-size: 1rem; margin-bottom: 8px; }
+    .contract-card p { color: #555; font-size: 0.85rem; line-height: 1.6; }
+
+    /* Contract Detail Modal */
+    .contract-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .contract-modal-overlay.active { display: flex; }
+    .contract-modal {
+      background: white;
+      border-radius: 16px;
+      padding: 35px;
+      width: 90%;
+      max-width: 700px;
+      direction: rtl;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .contract-modal h3 { color: #0d47a1; font-size: 1.4rem; margin-bottom: 20px; }
+    .contract-modal pre {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-family: inherit;
+      line-height: 2;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .contract-modal .close-contract {
+      margin-top: 20px;
+      background: #0d47a1;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: linear-gradient(135deg, #f3e5f5, #ce93d8);
+      padding: 70px 60px;
+      text-align: center;
+    }
+    #contact h2 {
+      font-size: 1.8rem;
+      color: #4a148c;
+      margin-bottom: 30px;
+      border-right: 5px solid #7b1fa2;
+      padding-right: 15px;
+      text-align: right;
+    }
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      background: white;
+      border-radius: 12px;
+      padding: 25px 30px;
+      min-width: 200px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .contact-item:hover { transform: translateY(-4px); }
+    .contact-item .icon { font-size: 2rem; margin-bottom: 10px; }
+    .contact-item p { color: #4a148c; font-weight: 700; font-size: 0.95rem; }
+    .contact-item a { color: #7b1fa2; text-decoration: none; font-size: 0.9rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+    footer span { color: #e2b96f; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #about, #projects, #contracts, #contact { padding: 50px 20px; }
+      nav ul { gap: 12px; }
+      nav ul li a { font-size: 0.8rem; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>ابراهیم حمدامین سۆرکان</h1>
-    <p>ڕاوێژکاری یاسایی</p>
-  </header>
 
-  <section>
-    <h2>دەربارەی من</h2>
-    <p>دەرچوی زانکۆی کۆیە / کۆلێجی یاسا (٢٠٠٤-٢٠٠٨)، فەرمانبەر لە وەزارەتی داد – بەڕێوەبەرایەتی تۆمارکردنی خانووبەرە. شارەزایی باشم هەیە لە یاساکانی خانووبەرە، یاسای سزادانی عێراقی، گرێبەستی کڕین و فرۆشتن و بەکرێدان، بەکارهێنانی ئامرازی ئێلکترۆنی و ئامێری انترنێتی.</p>
-  </section>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">⚖️ ابراهیم سۆرکان</div>
+  <ul>
+    <li><a href="#hero">سەرەتا</a></li>
+    <li><a href="#about">دەربارەی من</a></li>
+    <li><a href="#projects">پڕۆژەکان</a></li>
+    <li><a href="#contracts">گرێبەستەکان</a></li>
+    <li><a href="#contact">پەیوەندی</a></li>
+  </ul>
+</nav>
 
-  <section>
-    <h2>پەیوەندی کردن</h2>
-    <p>ئیمەیڵ: ibrahimsorkan4@gmail.com</p>
-    <p>Viber / WhatsApp</p>
-  </section>
-٠٧٥١٢٥٠١٦١٦ ، ٠٧٧١٥٦٠١٦١٦
-  <section>
-    <h2>پڕۆژەکان و نووسینەکان</h2>
-    <div id="projects"></div>
-    <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
-    <a href="#" class="btn" onclick="readMore()">زیاتر بخوێنەوە</a>
-    <div id="moreText" style="display:none;">
-      <p>ئەمە زانیاری زیاترە دەربارەی پڕۆژەکان و نووسینەکانم...</p>
-    </div>
-  </section>
-<section>
-  <h2>پڕۆژەکان و نووسینەکان</h2>
-  <div id="projects"></div>
-  <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
+<!-- HERO -->
+<section id="hero">
+  <div class="avatar">ا</div>
+  <h1>ابراهیم حمدامین سۆرکان</h1>
+  <p class="title">⚖️ ڕاوێژکاری یاسایی</p>
+  <p class="sub">دەرچووی زانکۆی کۆیە — کۆلێجی یاسا | فەرمانبەری وەزارەتی داد</p>
 </section>
 
+<!-- ABOUT -->
+<section id="about">
+  <h2>دەربارەی من</h2>
+  <p>
+    ابراهیم حمدامین سۆرکان، ڕاوێژکاری یاسایی، دەرچووی زانکۆی کۆیە / کۆلێجی یاسا — بەشی یاسا (٢٠٠٤–٢٠٠٨)، فەرمانبەری وەزارەتی داد / بەڕێوەبەرایەتی تۆمارکردنی خانووبەرە.
+    <br/><br/>
+    لە بوارە جۆراوجۆرەکانی یاسا کارم کردووە، لەوانە: یاسای بەرزەفت کردنی فەرمانبەرانی دەوڵەت و کەرتی گشتی، یاسای سزادانی عێراقی لەو بەشەی پەیوەندی بە تاوانەکانی پێشێل کردنی ئەرکەکانی فەرمانبەری هەیە، یاساکانی پەیوەست بە تۆمارکردنی خانووبەرە (یاسای تۆمارکردنی خانووبەرە، یاسای دیاریکردنی نرخی خانووبەرە و سودەکانی، یاسای وەبەرهێنان، یاسای بەکرێدانی خانووبەرە، یاسای تایبەت بە میرانە)، یاسای شارستانی.
+    <br/><br/>
+    شارەزایی باش لە داڕشتنی گرێبەستی (کارکردن، کڕین و فرۆشتن، بەکرێدان)، گرێبەستی ئەلیکترۆنی و کارکردن بە ئامرازی ئینترنێت و ئامێری ئەلیکترۆنی. سەرۆکایەتی چەندین لیژنەی جۆراوجۆرم کردووە، لەوانە: لیژنەی لێکۆڵینەوە، ئامادەکردنی گرێبەستی خزمەتگوزاری، ئامادەکردنی تەندەر، کڕین. بەشداری دادبینی داواکاری میریەکام کردووە وەک بریکاری وەزیری پەیوەندیدار و بریکاری بەڕێوەبەرایەتی پەیوەندیدار. شارەزایی باشم لە زمانی عەرەبیدا هەیە، لە تێگەیشتن و شیکردنەوەی یاسای عێراقی.
+  </p>
+</section>
+
+<!-- PROJECTS & WRITINGS -->
+<section id="projects">
+  <h2>📚 پڕۆژەکانم و نووسینەکانم</h2>
+  <div class="projects-toolbar">
+    <button class="btn-add" onclick="openModal('writing')">📝 دەتەوێت نووسینێکی نوێ زیاد بکەیت؟</button>
+    <button class="btn-add-project" onclick="openModal('project')">➕ پڕۆژەی نوێ زیاد بکە</button>
+  </div>
+  <div class="items-grid" id="itemsGrid">
+    <!-- cards appear here -->
+  </div>
+</section>
+
+<!-- ADD MODAL -->
+<div class="modal-overlay" id="addModal">
+  <div class="modal">
+    <h3 id="modalTitle">نووسینی نوێ</h3>
+    <input type="text" id="itemTitle" placeholder="ناونیشان" />
+    <textarea id="itemContent" placeholder="ناوەڕۆک..."></textarea>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">هەڵوەشاندنەوە</button>
+      <button class="btn-save" onclick="saveItem()">پاشەکەوتکردن</button>
+    </div>
+  </div>
+</div>
+
+<!-- READ MORE MODAL -->
+<div class="read-modal-overlay" id="readModal">
+  <div class="read-modal">
+    <h3 id="readTitle"></h3>
+    <p id="readContent"></p>
+    <button class="close-read" onclick="closeReadModal()">داخستن</button>
+  </div>
+</div>
+
+<!-- CONTRACTS -->
+<section id="contracts">
+  <h2>📄 نمونەی گرێبەستەکان</h2>
+  <div class="contracts-grid">
+
+    <div class="contract-card" onclick="openContract('buy')">
+      <div class="icon">🏠</div>
+      <h3>گرێبەستی کڕین و فرۆشتن</h3>
+      <p>نمونەی ئامادەکراوی گرێبەستی کڕین و فرۆشتنی خانووبەرە</p>
+    </div>
+
+    <div class="contract-card" onclick="openContract('rent')">
+      <div class="icon">🔑</div>
+      <h3>گرێبەستی بەکرێدان</h3>
+      <p>نمونەی ئامادەکراوی گرێبەستی بەکرێدانی خانووبەرە</p>
+    </div>
+
+    <div class="contract-card" onclick="openContract('work')">
+      <div class="icon">💼</div>
+      <h3>گرێبەستی کارکردن</h3>
+      <p>نمونەی ئامادەکراوی گرێبەستی کارکردن و دامەزراندن</p>
+    </div>
+
+    <div class="contract-card" onclick="openContract('service')">
+      <div class="icon">🤝</div>
+      <h3>گرێبەستی خزمەتگوزاری</h3>
+      <p>نمونەی ئامادەکراوی گرێبەستی دەستەبەرکردنی خزمەتگوزاری</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTRACT MODAL -->
+<div class="contract-modal-overlay" id="contractModal">
+  <div class="contract-modal">
+    <h3 id="contractTitle"></h3>
+    <pre id="contractContent"></pre>
+    <button class="close-contract" onclick="closeContract()">داخستن</button>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>📞 پەیوەندی کردن</h2>
+  <div class="contact-cards">
+    <div class="contact-item">
+      <div class="icon">📧</div>
+      <p>ئیمەیڵ</p>
+      <a href="mailto:ibrahimsorkan4@gmail.com">ibrahimsorkan4@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="icon">📱</div>
+      <p>Viber</p>
+      <a href="#">ibrahimsorkan4@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="icon">💬</div>
+      <p>WhatsApp</p>
+      <a href="#">ibrahimsorkan4@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© ٢٠٢٦ — <span>ابراهیم حمدامین سۆرکان</span> — هەموو مافەکان پارێزراون</p>
+</footer>
+
 <script>
-function addProject() {
-  let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
-  let desc = prompt("وەسفی پڕۆژەکە بنوسە:");
-  if(title) {
-    let container = document.getElementById("projects");
-    let item = document.createElement("div");
-    item.style.border = "1px solid #ccc";
-    item.style.padding = "10px";
-    item.style.margin = "10px 0";
-    item.style.background = "#fdfdfd";
-    item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
-    container.appendChild(item)
+  // ===== ITEMS (Writings & Projects) =====
+  let items = JSON.parse(localStorage.getItem('ibrahim_items') || '[]');
+  let currentType = 'writing';
+
+  function saveToStorage() {
+    localStorage.setItem('ibrahim_items', JSON.stringify(items));
+  }
+
+  function renderItems() {
+    const grid = document.getElementById('itemsGrid');
+    grid.innerHTML = '';
+    if (items.length === 0) {
+      grid.innerHTML = '<p style="color:#888;font-size:1rem;">هێشتا هیچ نووسین یان پڕۆژەیەک زیادنەکراوە.</p>';
+      return;
+    }
+    items.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      const preview = item.content.length > 120 ? item.content.slice(0,120) + '...' : item.content;
+      card.innerHTML = `
+        <button class="delete-btn" onclick="deleteItem(${index})" title="سڕینەوە">✕</button>
+        <span class="card-tag ${item.type === 'writing' ? 'tag-writing' : 'tag-project'}">
+          ${item.type === 'writing' ? '✍️ نووسین' : '📁 پڕۆژە'}
+        </span>
+        <h3>${item.title}</h3>
+        <p>${preview}</p>
+        ${item.content.length > 120 ? `<button class="read-more" onclick="openReadModal(${index})">🔍 زیاتر بخوێنەوە</button>` : ''}
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function openModal(type) {
+    currentType = type;
+    document.getElementById('modalTitle').textContent =
+      type === 'writing' ? '📝 نووسینی نوێ زیاد بکە' : '➕ پڕۆژەی نوێ زیاد بکە';
+    document.getElementById('itemTitle').value = '';
+    document.getElementById('itemContent').value = '';
+    document.getElementById('addModal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('addModal').classList.remove('active');
+  }
+
+  function saveItem() {
+    const title = document.getElementById('itemTitle').value.trim();
+    const content = document.getElementById('itemContent').value.trim();
+    if (!title || !content) {
+      alert('تکایە ناونیشان و ناوەڕۆک پڕبکەوە!');
+      return;
+    }
+    items.unshift({ title, content, type: currentType });
+    saveToStorage();
+    renderItems();
+    closeModal();
+  }
+
+  function deleteItem(index) {
+    if (confirm('دڵنیایت لە سڕینەوەی ئەم بابەتە؟')) {
+      items.splice(index, 1);
+      saveToStorage();
+      renderItems();
+    }
+  }
+
+  function openReadModal(index) {
+    document.getElementById('readTitle').textContent = items[index].title;
+    document.getElementById('readContent').textContent = items[index].content;
+    document.getElementById('readModal').classList.add('active');
+  }
+
+  function closeReadModal() {
+    document.getElementById('readModal').classList.remove('active');
+  }
+
+  // ===== CONTRACTS =====
+  const contractData = {
+    buy: {
+      title: '🏠 گرێبەستی کڕین و فرۆشتن',
+      content: `گرێبەستی کڕین و فرۆشتنی خانووبەرە
+
+لەنێوان:
+یەکەم: فرۆشیار: ناو: .............. ناسنامە: ..............
+دووەم: کڕیار: ناو: .............. ناسنامە: ..............
+
+پاڵپشتی گرێبەست:
+مادەی یەکەم: فرۆشیار ئەو خانووبەرەی خوارەوە دەفرۆشێت بە کڕیار:
+- جۆری خانووبەرە: ..............
+- شوێن: ..............
+- ئەندازە: ..............
+- زانیاری تۆمارکردن: ..............
+
+مادەی دووەم - نرخ و شێوازی پارەدان:
+- نرخی گشتی: .............. دینار
+- شێوازی پارەدان: ..............
+
+مادەی سێیەم - پابەندبوونەکان:
+- فرۆشیار پابەند بە گواستنەوەی خانووبەرەکە دەبێت لە ماوەی ...... رۆژدا.
+- کڕیار پابەند بە پارەدانی تەواو دەبێت لەگەڵ واژووکردنی گرێبەستەکە.
+
+مادەی چوارەم - مەرجەکان:
+ئەم گرێبەستە بە رووی یاساوە دروستە و هەر دوو لای پابەندی بەو مەرجانەن.
+
+واژووی فرۆشیار: ..............    بەرواری: ..............
+واژووی کڕیار: ..............      بەرواری: ..............
+`
+    },
+    rent: {
+      title: '🔑 گرێبەستی بەکرێدان',
+      content: `گرێبەستی بەکرێدانی خانووبەرە
+
+لەنێوان:
+یەکەم: کرێدەر: ناو: .............. ناسنامە: ..............
+دووەم: کرێگر: ناو: .............. ناسنامە: ..............
+
+مادەی یەکەم - بابەتی گرێبەست:
+کرێدەر خانووبەرەی خوارەوە دەدات بە کرێی کرێگر:
+- جۆری خانووبەرە: ..............
+- شوێن: ..............
+- ئەندازە: ..............
+
+مادەی دووەم - ماوە و کرێ:
+- کاتی گرێبەست لە: .............. بۆ: ..............
+- کرێی مانگانە: .............. دینار
+- شێوازی پارەدان: ..............
+
+مادەی سێیەم - مەرجەکان:
+- کرێگر مافی گۆڕینی مەبەستی خانووبەرەکەی نییە بەبێ ڕەزامەندی کرێدەر.
+- کرێدەر پابەند دەبێت بە بڵاو نەکردنەوەی کرێگر بێ ئاگادارکردنی پێشوەختە.
+
+واژووی کرێدەر: ..............    بەرواری: ..............
+واژووی کرێگر: ..............      بەرواری: ..............
+`
+    },
+    work: {
+      title: '💼 گرێبەستی کارکردن',
+      content: `گرێبەستی کارکردن
+
+لەنێوان:
+یەکەم: کارفەرما: ناو: .............. ناسنامە: ..............
+دووەم: کارکەر: ناو: .............. ناسنامە: ..............
+
+مادەی یەکەم - کار:
+کارکەر دەبێت ئەم کارانەی خوارەوە ئەنجام بدات:
+- جۆری کار: ..............
+- شوێنی کار: ..............
+- کاتی کار: ..............
+
+مادەی دووەم - مووچە:
+- مووچەی مانگانە: .............. دینار
+- شێوازی پارەدان: ..............
+
+مادەی سێیەم - ماوەی گرێبەست:
+لە: .............. بۆ: ..............
+
+مادەی چوارەم - مافەکان و ئەرکەکان:
+- کارفەرما مافی کۆتایی هێنان بە گرێبەستەکەی هەیە لەگەڵ ئاگادارکردنی پێشوەختەی ...... رۆژ.
+- کارکەر مافی مانەوەی لەگەڵ مووچە و مافی یاساییەکانی هەیە.
+
+واژووی کارفەرما: ..............    بەرواری: ..............
+واژووی کارکەر: ..............       بەرواری: ..............
+`
+    },
+    service: {
+      title: '🤝 گرێبەستی خزمەتگوزاری',
+      content: `گرێبەستی دەستەبەرکردنی خزمەتگوزاری
+
+لەنێوان:
+یەکەم: خزمەتگوزار: ناو: .............. ناسنامە: ..............
+دووەم: خزمەتگیر: ناو: .............. ناسنامە: ..............
+
+مادەی یەکەم - خزمەتگوزاری:
+خزمەتگوزار ئەم خزمەتگوزارییانەی خوارەوە پێشکەش دەکات:
+- جۆری خزمەتگوزاری: ..............
+- ماوەی ئەنجامدان: ..............
+- ئاستی کوالیتی: ..............
+
+مادەی دووەم - کرێی خزمەتگوزاری:
+- کرێی گشتی: .............. دینار
+- شێوازی پارەدان: ..............
+
+مادەی سێیەم - پابەندبوون:
+- خزمەتگوزار پابەند بە ئەنجامدانی خزمەتگوزاری لە ماوەی دیاریکراودا دەبێت.
+- خزمەتگیر پابەند بە پارەدان دەبێت دوای ئەنجامدانی کارەکە.
+
+واژووی خزمەتگوزار: ..............    بەرواری: ..............
+واژووی خزمەتگیر: ..............       بەرواری: ..............
+`
+    }
+  };
+
+  function openContract(type) {
+    document.getElementById('contractTitle').textContent = contractData[type].title;
+    document.getElementById('contractContent').textContent = contractData[type].content;
+    document.getElementById('contractModal').classList.add('active');
+  }
+
+  function closeContract() {
+    document.getElementById('contractModal').classList.remove('active');
+  }
+
+  // Close modals on overlay click
+  document.getElementById('addModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.getElementById('readModal').addEventListener('click', function(e) {
+    if (e.target === this) closeReadModal();
+  });
+  document.getElementById('contractModal').addEventListener('click', function(e) {
+    if (e.target === this) closeContract();
+  });
+
+  // Init
+  renderItems();
 </script>
 
-  <footer>
-    <p>© 2026 - ابراهیم حمدامین سۆرکان</p>
-  </footer>
-
-  <script>
-    function addProject() {
-      let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
-      let desc = prompt("زانیاری پڕۆژەکە بنوسە:");
-      if(title) {
-        let container = document.getElementById("projects");
-        let item = document.createElement("div");
-        item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
-        container.appendChild(item)
-    function readMore() {
-      let more = document.getElementById("moreText");
-      more.style.display = (more.style.display === "none") ? "block" : "none"
-  </script>
 </body>
 </html>
-<section>
-  <h2>پڕۆژەکان و نووسینەکان</h2>
-  <div id="projects"></div>
-  <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
-</section>
-
-<style>
-  #projects div {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin: 10px 0;
-    background: #fdfdfd;
-    border-radius: 8px;
-  }
-  #projects h3 {
-    margin: 0;
-    color: #004466;
-  }
-  #projects p {
-    margin: 5px 0 0;
-  }
-</style>
-
-<script>
-function addProject() {
-  let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
-  let desc = prompt("زانیاری پڕۆژەکە بنوسە:");
-  if(title) {
-    let container = document.getElementById("projects");
-    let item = document.createElement("div");
-    item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
-    container.appendChild(item);
-  }
-}
-</script>
