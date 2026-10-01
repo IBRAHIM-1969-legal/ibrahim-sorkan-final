@@ -62,3 +62,18 @@ function readMore() {
   </footer>
 </body>
 </html>
+<a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
+
+<div id="projects"></div>
+
+<script>
+function addProject() {
+  let title = prompt("ناوی پڕۆژەی نوێ بنوسە:");
+  if(title) {
+    let container = document.getElementById("projects");
+    let item = document.createElement("p");
+    item.textContent = "📌 " + title;
+    container.appendChild(item);
+  }
+}
+</script>
