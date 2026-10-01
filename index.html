@@ -33,6 +33,22 @@
     <p>ئیمەیڵ: ibrahimsorkan4@gmail.com</p>
     <p>Viber / WhatsApp</p>
   </section>
+<a href="#" class="btn" onclick="readMore()">زیاتر بخوێنەوە</a>
+
+<div id="moreText" style="display:none;">
+  <p>ئەمە زانیاری زیاترە دەربارەی پڕۆژەکان و نووسینەکانم...</p>
+</div>
+
+<script>
+function readMore() {
+  let more = document.getElementById("moreText");
+  if(more.style.display === "none") {
+    more.style.display = "block";
+  } else {
+    more.style.display = "none";
+  }
+}
+</script>
 
   <section>
     <h2>پڕۆژەکان و نووسینەکان</h2>
