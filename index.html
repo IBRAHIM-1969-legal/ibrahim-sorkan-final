@@ -1,84 +1,3 @@
-<section>
-  <h2>پڕۆژەکان و نووسینەکان</h2>
-  <div id="projects"></div>
-  <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
-</section>
-
-<script>
-function addProject() {
-  let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
-  let desc = prompt("وەسفی پڕۆژەکە بنوسە:");
-  if(title) {
-    let container = document.getElementById("projects");
-    let item = document.createElement("div");
-    item.style.border = "1px solid #ccc";
-    item.style.padding = "10px";
-    item.style.margin = "10px 0";
-    item.style.background = "#fdfdfd";
-    item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
-    container.appendChild(item);
- لێکۆڵینەوەیەکی زانستی لەسەر: _
-
-ئیدارەدانی پارە لە ڕێگەی کارتی بانکی لە جیاتی کاش
-
-من، ابراهیم حمدامین سۆرکان - یاریدەدەری دادوەری
-
-لە چوارچێوەی پڕۆژەیەکی لێکۆڵینەوەی کۆمەڵایەتی و یاساییدا، بانگهێشتتان دەکەم بۆ بەشداریکردن لەم لێکۆڵینەوەیەدا.
-
-ئامانجی لێکۆڵینەوەکە:
-
-1. نەهێشتنی نۆرەگرتن لەبەردەم ئامێری پارەدان (ATM)
-
-2. دروستکردنی متمانە بە ژمارە و باڵانسی ناو هەژماری بانکی
-
-3. فراوانکردنی بەکارهێنانی کارتی بانکی لە جیاتی پارەی کاش
-
-ڕای سەرەتایی من بۆ چارەسەر و گفتوگۆ:
-
-فێرکردنی خەڵک بۆ بەکارهێنانی ژمارە (ژمارەی بانکی) لە جیاتی پارەی کاش.
-
-سەرجەم فەرمانگە حکومییەکان لە جیاتی کاش، کار بە هەژماری بانکی و کارت بکەن.
-
-دوکان و مۆڵ و مارکێتەکان ڕابهێنرێن بۆ بەکارهێنانی ئامێری فرۆشتنی بانکی (POS) بۆ ئەوەی فشار لەسەر ATM کەم بێتەوە.
-
-بانکەکان هەڵمەتی هۆشیاری دەستپێبکەن و ئامێری POS بە خۆڕایی یان بە نرخێکی کەم بدەنە دوکانداران.
-
-کارتە بانکییەکان بە جۆرێک ڕێکبخرێن کە بۆ سەفەری دەرەوەی هەرێم و عێراق بتوانرێت لە جیاتی وەرگرتنی دۆلاری کاش، ڕاستەوخۆ بە کارت مامەڵە بکرێت و ئاڵوگۆڕی دراو بکرێت.
-
-ڕێکخستنی کارتەکان بۆ بازرگانی گەورە وەک تاکەکەس، نەک تەنها وەک کۆمپانیا.
-
-بانگهێشتێکی تایبەت:
-
-بەشداریکردن بۆ هەموو کەسە، بەڵام بە تایبەتی داوا لەم بەڕێزانە دەکەم بە زانست و ئەزموونی خۆیان دەوڵەمەندی بکەن:
-
-دەرچووانی یاسا، دەرچووانی کۆمپیوتەر بە هەموو بوارەکانیەوە، دەرچووانی دارایی و بانکی و ژمێریاری، سەرجەم بانکەکان و فەرمانبەرانی بانک.
-
-تێبینی گرنگ:
-
-تکایە بە زمانێکی زانستی و ڕێزدارانە بەشداربن. هەموو بۆچوون و نوسینەکان کۆدەکرێنەوە و دەکرێنە نامیلکەیەک. بۆ پاراستنی ئاستی زانستی لێکۆڵینەوەکە، کۆمێنتی نەشیاو و دوور لە بابەت لادەبرێت.
-
-سوپاس بۆ هاوکاریتان
-
-ابراهیم حمدامین سۆر کان
-
-+9647512501616
-
-ibrahimsorkan4@gmail.com
-
- 
-
- 
-
- 
-
- 
-
- 
-
-   
- 
-</script>
-
 <!DOCTYPE html>
 <html lang="ku">
 <head>
@@ -113,22 +32,6 @@ ibrahimsorkan4@gmail.com
     <p>ئیمەیڵ: ibrahimsorkan4@gmail.com</p>
     <p>Viber / WhatsApp</p>
   </section>
-<a href="#" class="btn" onclick="readMore()">زیاتر بخوێنەوە</a>
-
-<div id="moreText" style="display:none;">
-  <p>ئەمە زانیاری زیاترە دەربارەی پڕۆژەکان و نووسینەکانم...</p>
-</div>
-
-<script>
-function readMore() {
-  let more = document.getElementById("moreText");
-  if(more.style.display === "none") {
-    more.style.display = "block";
-  } else {
-    more.style.display = "none";
-  }
-}
-</script>
 
   <section>
     <h2>پڕۆژەکان و نووسینەکان</h2>
@@ -156,4 +59,18 @@ function addProject() {
     container.appendChild(item);
   }
 }
+</script>
+<a href="#" class="btn" onclick="readMore()">زیاتر بخوێنەوە</a>
+
+<div id="moreText" style="display:none;">
+  <p>ئەمە زانیاری زیاترە دەربارەی پڕۆژەکان و نووسینەکانم...</p>
+</div>
+
+<script>
+function readMore() {
+  let more = document.getElementById("moreText");
+  if(more.style.display === "none") {
+    more.style.display = "block";
+  } else {
+    more.style.display = "none";
 </script>
