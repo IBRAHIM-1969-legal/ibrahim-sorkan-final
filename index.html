@@ -4,12 +4,64 @@
   <meta charset="UTF-8">
   <title>ابراهیم حمدامین سۆرکان - ڕاوێژکاری یاسایی</title>
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.8; margin: 0; background: #f9f9f9; color: #333; }
-    header { background: #004466; color: white; padding: 20px; text-align: center; }
-    section { padding: 20px; max-width: 900px; margin: auto; }
-    h2 { color: #004466; }
-    .btn { display: inline-block; padding: 10px 15px; background: #004466; color: white; text-decoration: none; border-radius: 5px; }
-    footer { background: #eee; text-align: center; padding: 15px; margin-top: 30px; }
+    body {
+      font-family: "Tahoma", Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+      color: #333;
+      line-height: 1.8;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 28px; }
+    header p { margin: 5px 0 0; font-size: 18px; }
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #003366;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 5px;
+      background: #003366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #0055aa; }
+
+    #projects div {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin: 10px 0;
+      background: #fdfdfd;
+      border-radius: 8px;
+    }
+    #projects h3 { margin: 0; color: #003366; }
+    #projects p { margin: 5px 0 0; }
+    
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
@@ -20,11 +72,7 @@
 
   <section>
     <h2>دەربارەی من</h2>
-    <p>
-      دەرچوی زانکۆی کۆیە / کۆلێجی یاسا (٢٠٠٤-٢٠٠٨)، فەرمانبەر لە وەزارەتی داد – بەڕێوەبەرایەتی تۆمارکردنی خانووبەرە.
-      شارەزایی باشم هەیە لە یاساکانی پەیوەست بە خانووبەرە، یاسای سزادانی عێراقی، گرێبەستی کڕین و فرۆشتن و بەکرێدان،
-      بەکارهێنانی ئامرازی ئێلکترۆنی و ئامێری انترنێتی، بەشداری لە لیژنە و دادبینی حکومی.
-    </p>
+    <p>دەرچوی زانکۆی کۆیە / کۆلێجی یاسا (٢٠٠٤-٢٠٠٨)، فەرمانبەر لە وەزارەتی داد – بەڕێوەبەرایەتی تۆمارکردنی خانووبەرە. شارەزایی باشم هەیە لە یاساکانی خانووبەرە، یاسای سزادانی عێراقی، گرێبەستی کڕین و فرۆشتن و بەکرێدان، بەکارهێنانی ئامرازی ئێلکترۆنی و ئامێری انترنێتی.</p>
   </section>
 
   <section>
@@ -35,42 +83,33 @@
 
   <section>
     <h2>پڕۆژەکان و نووسینەکان</h2>
-    <p>ئەم بەشە بۆ زیادکردنی بابەت و پڕۆژەی نوێیە. دەتوانیت بە دوگمەی خوارەوە زیاد بکەیت:</p>
-    <a href="#" class="btn">📝 پڕۆژەی نوێ</a>
-    <a href="#" class="btn">زیاتر بخوێنەوە</a>
+    <div id="projects"></div>
+    <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
+    <a href="#" class="btn" onclick="readMore()">زیاتر بخوێنەوە</a>
+    <div id="moreText" style="display:none;">
+      <p>ئەمە زانیاری زیاترە دەربارەی پڕۆژەکان و نووسینەکانم...</p>
+    </div>
   </section>
 
   <footer>
     <p>© 2026 - ابراهیم حمدامین سۆرکان</p>
   </footer>
+
+  <script>
+    function addProject() {
+      let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
+      let desc = prompt("زانیاری پڕۆژەکە بنوسە:");
+      if(title) {
+        let container = document.getElementById("projects");
+        let item = document.createElement("div");
+        item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
+        container.appendChild(item);
+      }
+    }
+    function readMore() {
+      let more = document.getElementById("moreText");
+      more.style.display = (more.style.display === "none") ? "block" : "none";
+    }
+  </script>
 </body>
 </html>
-<a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
-
-<div id="projects"></div>
-
-<script>
-function addProject() {
-  let title = prompt("ناوی پڕۆژەی نوێ بنوسە:");
-  if(title) {
-    let container = document.getElementById("projects");
-    let item = document.createElement("p");
-    item.textContent = "📌 " + title;
-    container.appendChild(item);
-  }
-}
-</script>
-<a href="#" class="btn" onclick="readMore()">زیاتر بخوێنەوە</a>
-
-<div id="moreText" style="display:none;">
-  <p>ئەمە زانیاری زیاترە دەربارەی پڕۆژەکان و نووسینەکانم...</p>
-</div>
-
-<script>
-function readMore() {
-  let more = document.getElementById("moreText");
-  if(more.style.display === "none") {
-    more.style.display = "block";
-  } else {
-    more.style.display = "none";
-</script>
