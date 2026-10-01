@@ -1,3 +1,25 @@
+<section>
+  <h2>پڕۆژەکان و نووسینەکان</h2>
+  <div id="projects"></div>
+  <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
+</section>
+
+<script>
+function addProject() {
+  let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
+  let desc = prompt("وەسفی پڕۆژەکە بنوسە:");
+  if(title) {
+    let container = document.getElementById("projects");
+    let item = document.createElement("div");
+    item.style.border = "1px solid #ccc";
+    item.style.padding = "10px";
+    item.style.margin = "10px 0";
+    item.style.background = "#fdfdfd";
+    item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
+    container.appendChild(item);
+  }
+}
+</script>
 
 <!DOCTYPE html>
 <html lang="ku">
