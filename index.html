@@ -10,13 +10,11 @@
       background: #f4f7fb;
       color: #333;
       line-height: 1.8;
-    }
     header {
       background: #003366;
       color: white;
       padding: 30px;
       text-align: center;
-    }
     header h1 { margin: 0; font-size: 28px; }
     header p { margin: 5px 0 0; font-size: 18px; }
 
@@ -27,12 +25,11 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
     h2 {
       color: #003366;
       border-bottom: 2px solid #eee;
       padding-bottom: 5px;
-    }
+
     .btn {
       display: inline-block;
       padding: 10px 15px;
@@ -41,8 +38,7 @@
       color: white;
       text-decoration: none;
       border-radius: 5px;
-      transition: 0.3s;
-    }
+      transition: 0.3s
     .btn:hover { background: #0055aa; }
 
     #projects div {
@@ -50,8 +46,7 @@
       padding: 15px;
       margin: 10px 0;
       background: #fdfdfd;
-      border-radius: 8px;
-    }
+      border-radius: 8px
     #projects h3 { margin: 0; color: #003366; }
     #projects p { margin: 5px 0 0; }
     
@@ -60,8 +55,7 @@
       color: white;
       text-align: center;
       padding: 15px;
-      margin-top: 30px;
-    }
+      margin-top: 30p
   </style>
 </head>
 <body>
@@ -80,7 +74,7 @@
     <p>ئیمەیڵ: ibrahimsorkan4@gmail.com</p>
     <p>Viber / WhatsApp</p>
   </section>
-
+٠٧٥١٢٥٠١٦١٦ ، ٠٧٧١٥٦٠١٦١٦
   <section>
     <h2>پڕۆژەکان و نووسینەکان</h2>
     <div id="projects"></div>
@@ -90,6 +84,26 @@
       <p>ئەمە زانیاری زیاترە دەربارەی پڕۆژەکان و نووسینەکانم...</p>
     </div>
   </section>
+<section>
+  <h2>پڕۆژەکان و نووسینەکان</h2>
+  <div id="projects"></div>
+  <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
+</section>
+
+<script>
+function addProject() {
+  let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
+  let desc = prompt("وەسفی پڕۆژەکە بنوسە:");
+  if(title) {
+    let container = document.getElementById("projects");
+    let item = document.createElement("div");
+    item.style.border = "1px solid #ccc";
+    item.style.padding = "10px";
+    item.style.margin = "10px 0";
+    item.style.background = "#fdfdfd";
+    item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
+    container.appendChild(item)
+</script>
 
   <footer>
     <p>© 2026 - ابراهیم حمدامین سۆرکان</p>
@@ -103,13 +117,45 @@
         let container = document.getElementById("projects");
         let item = document.createElement("div");
         item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
-        container.appendChild(item);
-      }
-    }
+        container.appendChild(item)
     function readMore() {
       let more = document.getElementById("moreText");
-      more.style.display = (more.style.display === "none") ? "block" : "none";
-    }
+      more.style.display = (more.style.display === "none") ? "block" : "none"
   </script>
 </body>
 </html>
+<section>
+  <h2>پڕۆژەکان و نووسینەکان</h2>
+  <div id="projects"></div>
+  <a href="#" class="btn" onclick="addProject()">📝 پڕۆژەی نوێ</a>
+</section>
+
+<style>
+  #projects div {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    background: #fdfdfd;
+    border-radius: 8px;
+  }
+  #projects h3 {
+    margin: 0;
+    color: #004466;
+  }
+  #projects p {
+    margin: 5px 0 0;
+  }
+</style>
+
+<script>
+function addProject() {
+  let title = prompt("ناوی پڕۆژەی نوێ بنووسە:");
+  let desc = prompt("زانیاری پڕۆژەکە بنوسە:");
+  if(title) {
+    let container = document.getElementById("projects");
+    let item = document.createElement("div");
+    item.innerHTML = "<h3>📌 " + title + "</h3><p>" + (desc ? desc : "") + "</p>";
+    container.appendChild(item);
+  }
+}
+</script>
