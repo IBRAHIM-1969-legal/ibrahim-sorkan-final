@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+  <meta charset="UTF-8">
+  <title>ابراهیم حمدامین سۆرکان - ڕاوێژکاری یاسایی</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.8; margin: 0; background: #f9f9f9; color: #333; }
+    header { background: #004466; color: white; padding: 20px; text-align: center; }
+    section { padding: 20px; max-width: 900px; margin: auto; }
+    h2 { color: #004466; }
+    .btn { display: inline-block; padding: 10px 15px; background: #004466; color: white; text-decoration: none; border-radius: 5px; }
+    footer { background: #eee; text-align: center; padding: 15px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ابراهیم حمدامین سۆرکان</h1>
+    <p>ڕاوێژکاری یاسایی</p>
+  </header>
+
+  <section>
+    <h2>دەربارەی من</h2>
+    <p>
+      دەرچوی زانکۆی کۆیە / کۆلێجی یاسا (٢٠٠٤-٢٠٠٨)، فەرمانبەر لە وەزارەتی داد – بەڕێوەبەرایەتی تۆمارکردنی خانووبەرە.
+      شارەزایی باشم هەیە لە یاساکانی پەیوەست بە خانووبەرە، یاسای سزادانی عێراقی، گرێبەستی کڕین و فرۆشتن و بەکرێدان،
+      بەکارهێنانی ئامرازی ئێلکترۆنی و ئامێری انترنێتی، بەشداری لە لیژنە و دادبینی حکومی.
+    </p>
+  </section>
+
+  <section>
+    <h2>پەیوەندی کردن</h2>
+    <p>ئیمەیڵ: ibrahimsorkan4@gmail.com</p>
+    <p>Viber / WhatsApp</p>
+  </section>
+
+  <section>
+    <h2>پڕۆژەکان و نووسینەکان</h2>
+    <p>ئەم بەشە بۆ زیادکردنی بابەت و پڕۆژەی نوێیە. دەتوانیت بە دوگمەی خوارەوە زیاد بکەیت:</p>
+    <a href="#" class="btn">📝 پڕۆژەی نوێ</a>
+    <a href="#" class="btn">زیاتر بخوێنەوە</a>
+  </section>
+
+  <footer>
+    <p>© 2026 - ابراهیم حمدامین سۆرکان</p>
+  </footer>
+</body>
+</html>
