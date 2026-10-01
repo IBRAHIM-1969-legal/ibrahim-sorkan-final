@@ -1,436 +1,256 @@
 <!DOCTYPE html>
 <html lang="ckb" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ابراهیم حمدامین سۆرکان - ڕاوێژکاری یاسایی</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap');
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ابراهیم حمدامین سۆرکان</title>
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  direction:rtl;
+  background:#f0f2f5;
+  color:#222;
+  font-size:16px;
+  line-height:1.6;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===== NAVBAR ===== */
+nav{
+  background:#0a1628;
+  padding:0 30px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:9999;
+  border-bottom:3px solid #c9a227;
+}
+.nav-brand{color:#c9a227;font-size:1.1rem;font-weight:bold;}
+.nav-menu{display:flex;gap:20px;list-style:none;}
+.nav-menu a{color:#ddd;text-decoration:none;font-size:0.9rem;padding:5px 8px;border-radius:5px;transition:all .3s;}
+.nav-menu a:hover{color:#c9a227;background:rgba(201,162,39,0.1);}
 
-    body {
-      font-family: 'Noto Sans Arabic', sans-serif;
-      direction: rtl;
-      background: #f9f9f9;
-      color: #222;
-    }
+/* ===== HERO ===== */
+#hero{
+  background:#0a1628;
+  background-image:radial-gradient(circle at 30% 50%, #1a3a6e 0%, #0a1628 70%);
+  color:#fff;
+  text-align:center;
+  padding:80px 20px 70px;
+  border-bottom:4px solid #c9a227;
+}
+.hero-avatar{
+  width:110px;height:110px;
+  border-radius:50%;
+  background:#c9a227;
+  margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.8rem;font-weight:900;
+  color:#0a1628;
+  border:5px solid rgba(201,162,39,0.3);
+  box-shadow:0 0 40px rgba(201,162,39,0.25);
+}
+.hero-name{font-size:2rem;color:#c9a227;margin-bottom:8px;font-weight:bold;}
+.hero-line{width:70px;height:3px;background:#c9a227;margin:12px auto;border-radius:2px;}
+.hero-role{font-size:1.1rem;color:#90b8e8;margin-bottom:6px;}
+.hero-info{font-size:0.88rem;color:#aaa;line-height:2;}
 
-    /* ===== NAVBAR ===== */
-    nav {
-      background: #1a1a2e;
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav .logo {
-      color: #e2b96f;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover { color: #e2b96f; }
+/* ===== SECTION BASE ===== */
+section{padding:70px 40px;}
+.sec-title{
+  font-size:1.7rem;font-weight:bold;
+  margin-bottom:30px;
+  padding-right:15px;
+  display:inline-block;
+}
 
-    /* ===== HERO ===== */
-    #hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      color: white;
-      text-align: center;
-      padding: 100px 20px 80px;
-    }
-    #hero .avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: #e2b96f;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: #1a1a2e;
-      font-weight: 700;
-    }
-    #hero h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #e2b96f;
-    }
-    #hero p.title {
-      font-size: 1.1rem;
-      color: #a8c0ff;
-      margin-bottom: 8px;
-    }
-    #hero p.sub {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
+/* ===== ABOUT ===== */
+#about{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);}
+#about .sec-title{color:#1b5e20;border-right:6px solid #2e7d32;}
+.about-box{
+  background:#fff;
+  border-radius:14px;
+  padding:28px 32px;
+  border-right:5px solid #43a047;
+  box-shadow:0 4px 20px rgba(0,0,0,0.07);
+  max-width:960px;
+  font-size:1rem;
+  line-height:2.2;
+  color:#333;
+}
 
-    /* ===== ABOUT ===== */
-    #about {
-      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-      padding: 70px 60px;
-    }
-    #about h2 {
-      font-size: 1.8rem;
-      color: #1b5e20;
-      margin-bottom: 25px;
-      border-right: 5px solid #388e3c;
-      padding-right: 15px;
-    }
-    #about p {
-      font-size: 1.05rem;
-      line-height: 2;
-      color: #2e2e2e;
-      max-width: 900px;
-    }
+/* ===== PROJECTS ===== */
+#projects{background:linear-gradient(135deg,#fffde7,#fff8e1);}
+#projects .sec-title{color:#e65100;border-right:6px solid #ff6d00;}
+.proj-toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:25px;}
+.btn-w{
+  background:#ff6d00;color:#fff;border:none;
+  padding:12px 20px;border-radius:9px;
+  cursor:pointer;font-size:0.95rem;font-weight:bold;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 14px rgba(255,109,0,.3);
+}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(255,109,0,.4);}
+.btn-p{
+  background:#2e7d32;color:#fff;border:none;
+  padding:12px 20px;border-radius:9px;
+  cursor:pointer;font-size:0.95rem;font-weight:bold;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 14px rgba(46,125,50,.3);
+}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(46,125,50,.4);}
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:20px;
+}
+.item-card{
+  background:#fff;border-radius:12px;padding:20px;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  border-top:4px solid #ff6d00;
+  position:relative;
+  transition:transform .2s,box-shadow .2s;
+}
+.item-card.is-project{border-top-color:#2e7d32;}
+.item-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12);}
+.badge{
+  display:inline-block;font-size:0.72rem;font-weight:bold;
+  padding:3px 11px;border-radius:20px;margin-bottom:10px;
+}
+.badge-w{background:#fff3e0;color:#e65100;}
+.badge-p{background:#e8f5e9;color:#1b5e20;}
+.item-card h3{font-size:1rem;color:#222;margin-bottom:8px;line-height:1.5;}
+.item-card p{font-size:0.88rem;color:#666;line-height:1.8;}
+.btn-more{
+  background:none;border:none;color:#ff6d00;
+  font-size:0.85rem;cursor:pointer;
+  margin-top:10px;text-decoration:underline;
+}
+.btn-del{
+  position:absolute;top:12px;left:12px;
+  background:#ffebee;border:none;color:#c62828;
+  width:28px;height:28px;border-radius:50%;
+  cursor:pointer;font-size:0.9rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.btn-del:hover{background:#ffcdd2;}
+.empty-msg{color:#999;font-size:0.95rem;grid-column:1/-1;}
 
-    /* ===== PROJECTS & WRITINGS ===== */
-    #projects {
-      background: linear-gradient(135deg, #fff8e1, #ffe082);
-      padding: 70px 60px;
-    }
-    #projects h2 {
-      font-size: 1.8rem;
-      color: #e65100;
-      margin-bottom: 25px;
-      border-right: 5px solid #ff6f00;
-      padding-right: 15px;
-    }
-    .projects-toolbar {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    .btn-add {
-      background: #ff6f00;
-      color: white;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-    .btn-add:hover { background: #e65100; }
-    .btn-add-project {
-      background: #1b5e20;
-      color: white;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-    .btn-add-project:hover { background: #388e3c; }
+/* ===== CONTRACTS ===== */
+#contracts{background:linear-gradient(135deg,#e3f2fd,#e8eaf6);}
+#contracts .sec-title{color:#0d47a1;border-right:6px solid #1565c0;}
+.con-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:20px;
+}
+.con-card{
+  background:#fff;border-radius:12px;padding:28px 18px;
+  text-align:center;cursor:pointer;
+  border-bottom:4px solid #1565c0;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  transition:transform .25s,box-shadow .25s;
+}
+.con-card:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(13,71,161,.18);}
+.con-card .ico{font-size:2.8rem;margin-bottom:12px;}
+.con-card h3{color:#0d47a1;font-size:0.97rem;margin-bottom:7px;}
+.con-card p{color:#666;font-size:0.8rem;line-height:1.6;}
 
-    .items-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      position: relative;
-      transition: transform 0.2s;
-    }
-    .card:hover { transform: translateY(-3px); }
-    .card h3 {
-      font-size: 1.1rem;
-      color: #e65100;
-      margin-bottom: 10px;
-    }
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.8;
-    }
-    .card .read-more {
-      display: inline-block;
-      margin-top: 12px;
-      color: #ff6f00;
-      cursor: pointer;
-      font-size: 0.9rem;
-      text-decoration: underline;
-      background: none;
-      border: none;
-      font-family: inherit;
-    }
-    .card .card-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-    }
-    .tag-writing { background: #fff3e0; color: #e65100; }
-    .tag-project { background: #e8f5e9; color: #1b5e20; }
-    .card .delete-btn {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: #ffebee;
-      border: none;
-      color: #c62828;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
+/* ===== CONTACT ===== */
+#contact{background:linear-gradient(135deg,#f3e5f5,#ede7f6);}
+#contact .sec-title{color:#4a148c;border-right:6px solid #7b1fa2;}
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:20px;
+}
+.contact-card{
+  background:#fff;border-radius:12px;padding:26px 18px;
+  text-align:center;
+  border-top:4px solid #7b1fa2;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  transition:transform .2s;
+}
+.contact-card:hover{transform:translateY(-4px);}
+.contact-card .ico{font-size:2.3rem;margin-bottom:10px;}
+.contact-card h4{color:#4a148c;margin-bottom:8px;font-size:0.97rem;}
+.contact-card a,.contact-card p{color:#7b1fa2;font-size:0.85rem;text-decoration:none;line-height:1.8;}
 
-    /* Modal */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: white;
-      border-radius: 16px;
-      padding: 35px;
-      width: 90%;
-      max-width: 500px;
-      direction: rtl;
-    }
-    .modal h3 {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-      color: #1a1a2e;
-    }
-    .modal input, .modal textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      direction: rtl;
-    }
-    .modal textarea { height: 120px; resize: vertical; }
-    .modal-btns {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-    }
-    .btn-save {
-      background: #0f3460;
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-    .btn-cancel {
-      background: #eee;
-      color: #333;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-    }
+/* ===== FOOTER ===== */
+footer{
+  background:#0a1628;color:#888;
+  text-align:center;padding:24px;
+  font-size:0.88rem;
+  border-top:3px solid #c9a227;
+}
+footer span{color:#c9a227;font-weight:bold;}
 
-    /* Read More Modal */
-    .read-modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-    .read-modal-overlay.active { display: flex; }
-    .read-modal {
-      background: white;
-      border-radius: 16px;
-      padding: 35px;
-      width: 90%;
-      max-width: 650px;
-      direction: rtl;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .read-modal h3 { color: #e65100; margin-bottom: 15px; font-size: 1.4rem; }
-    .read-modal p { line-height: 2; color: #333; }
-    .read-modal .close-read {
-      margin-top: 20px;
-      background: #0f3460;
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-    }
+/* ===== MODALS ===== */
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.65);z-index:99999;
+  align-items:center;justify-content:center;
+}
+.overlay.open{display:flex;}
+.mbox{
+  background:#fff;border-radius:16px;
+  padding:32px;width:92%;max-width:500px;
+  direction:rtl;max-height:88vh;overflow-y:auto;
+}
+.mbox h3{font-size:1.2rem;color:#0a1628;margin-bottom:18px;
+  padding-bottom:12px;border-bottom:2px solid #f0f0f0;}
+.mbox input,.mbox textarea{
+  width:100%;padding:12px;margin-bottom:13px;
+  border:2px solid #e0e0e0;border-radius:9px;
+  font-family:inherit;font-size:0.93rem;direction:rtl;
+}
+.mbox input:focus,.mbox textarea:focus{outline:none;border-color:#c9a227;}
+.mbox textarea{height:120px;resize:vertical;}
+.mbox-actions{display:flex;gap:10px;justify-content:flex-end;}
+.btn-save{background:#0a1628;color:#c9a227;border:none;padding:11px 26px;border-radius:9px;cursor:pointer;font-size:0.95rem;font-weight:bold;}
+.btn-cancel{background:#f5f5f5;color:#555;border:none;padding:11px 20px;border-radius:9px;cursor:pointer;font-size:0.95rem;}
 
-    /* ===== CONTRACTS ===== */
-    #contracts {
-      background: linear-gradient(135deg, #e3f2fd, #90caf9);
-      padding: 70px 60px;
-    }
-    #contracts h2 {
-      font-size: 1.8rem;
-      color: #0d47a1;
-      margin-bottom: 25px;
-      border-right: 5px solid #1565c0;
-      padding-right: 15px;
-    }
-    .contracts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .contract-card {
-      background: white;
-      border-radius: 12px;
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .contract-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .contract-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
-    .contract-card h3 { color: #0d47a1; font-size: 1rem; margin-bottom: 8px; }
-    .contract-card p { color: #555; font-size: 0.85rem; line-height: 1.6; }
+.rbox{background:#fff;border-radius:16px;padding:32px;
+  width:92%;max-width:640px;direction:rtl;max-height:88vh;overflow-y:auto;}
+.rbox h3{color:#e65100;font-size:1.35rem;margin-bottom:15px;}
+.rbox p{line-height:2.1;color:#333;font-size:0.97rem;}
 
-    /* Contract Detail Modal */
-    .contract-modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-    .contract-modal-overlay.active { display: flex; }
-    .contract-modal {
-      background: white;
-      border-radius: 16px;
-      padding: 35px;
-      width: 90%;
-      max-width: 700px;
-      direction: rtl;
-      max-height: 85vh;
-      overflow-y: auto;
-    }
-    .contract-modal h3 { color: #0d47a1; font-size: 1.4rem; margin-bottom: 20px; }
-    .contract-modal pre {
-      background: #f5f5f5;
-      padding: 20px;
-      border-radius: 8px;
-      white-space: pre-wrap;
-      font-family: inherit;
-      line-height: 2;
-      font-size: 0.9rem;
-      color: #333;
-    }
-    .contract-modal .close-contract {
-      margin-top: 20px;
-      background: #0d47a1;
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-    }
+.cbox{background:#fff;border-radius:16px;padding:32px;
+  width:92%;max-width:680px;direction:rtl;max-height:88vh;overflow-y:auto;}
+.cbox h3{color:#0d47a1;font-size:1.3rem;margin-bottom:15px;}
+.cbox pre{
+  background:#f7f9fc;padding:20px;border-radius:10px;
+  white-space:pre-wrap;font-family:inherit;
+  line-height:2;font-size:0.9rem;color:#333;
+  border-right:4px solid #1565c0;
+}
 
-    /* ===== CONTACT ===== */
-    #contact {
-      background: linear-gradient(135deg, #f3e5f5, #ce93d8);
-      padding: 70px 60px;
-      text-align: center;
-    }
-    #contact h2 {
-      font-size: 1.8rem;
-      color: #4a148c;
-      margin-bottom: 30px;
-      border-right: 5px solid #7b1fa2;
-      padding-right: 15px;
-      text-align: right;
-    }
-    .contact-cards {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    .contact-item {
-      background: white;
-      border-radius: 12px;
-      padding: 25px 30px;
-      min-width: 200px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    .contact-item:hover { transform: translateY(-4px); }
-    .contact-item .icon { font-size: 2rem; margin-bottom: 10px; }
-    .contact-item p { color: #4a148c; font-weight: 700; font-size: 0.95rem; }
-    .contact-item a { color: #7b1fa2; text-decoration: none; font-size: 0.9rem; }
+.btn-close-o{margin-top:18px;background:#e65100;color:#fff;border:none;padding:10px 26px;border-radius:9px;cursor:pointer;font-size:0.93rem;}
+.btn-close-b{margin-top:18px;background:#0d47a1;color:#fff;border:none;padding:10px 26px;border-radius:9px;cursor:pointer;font-size:0.93rem;}
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: #1a1a2e;
-      color: #aaa;
-      text-align: center;
-      padding: 25px;
-      font-size: 0.9rem;
-    }
-    footer span { color: #e2b96f; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      #about, #projects, #contracts, #contact { padding: 50px 20px; }
-      nav ul { gap: 12px; }
-      nav ul li a { font-size: 0.8rem; }
-    }
-  </style>
+/* Responsive */
+@media(max-width:700px){
+  section{padding:50px 18px;}
+  nav{padding:0 14px;}
+  .nav-menu{gap:10px;}
+  .nav-menu a{font-size:0.78rem;}
+  .hero-name{font-size:1.5rem;}
+}
+</style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav>
-  <div class="logo">⚖️ ابراهیم سۆرکان</div>
-  <ul>
+  <div class="nav-brand">⚖️ ابراهیم سۆرکان</div>
+  <ul class="nav-menu">
     <li><a href="#hero">سەرەتا</a></li>
-    <li><a href="#about">دەربارەی من</a></li>
+    <li><a href="#about">دەربارەم</a></li>
     <li><a href="#projects">پڕۆژەکان</a></li>
     <li><a href="#contracts">گرێبەستەکان</a></li>
     <li><a href="#contact">پەیوەندی</a></li>
@@ -439,343 +259,216 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="avatar">ا</div>
-  <h1>ابراهیم حمدامین سۆرکان</h1>
-  <p class="title">⚖️ ڕاوێژکاری یاسایی</p>
-  <p class="sub">دەرچووی زانکۆی کۆیە — کۆلێجی یاسا | فەرمانبەری وەزارەتی داد</p>
+  <div class="hero-avatar">ا</div>
+  <div class="hero-name">ابراهیم حمدامین سۆرکان</div>
+  <div class="hero-line"></div>
+  <div class="hero-role">⚖️ ڕاوێژکاری یاسایی</div>
+  <div class="hero-info">
+    دەرچووی زانکۆی کۆیە — کۆلێجی یاسا، بەشی یاسا (٢٠٠٤–٢٠٠٨)<br/>
+    فەرمانبەری وەزارەتی داد — بەڕێوەبەرایەتی تۆمارکردنی خانووبەرە
+  </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <h2>دەربارەی من</h2>
-  <p>
+  <div class="sec-title">👤 دەربارەی من</div>
+  <div class="about-box">
     ابراهیم حمدامین سۆرکان، ڕاوێژکاری یاسایی، دەرچووی زانکۆی کۆیە / کۆلێجی یاسا — بەشی یاسا (٢٠٠٤–٢٠٠٨)، فەرمانبەری وەزارەتی داد / بەڕێوەبەرایەتی تۆمارکردنی خانووبەرە.
     <br/><br/>
     لە بوارە جۆراوجۆرەکانی یاسا کارم کردووە، لەوانە: یاسای بەرزەفت کردنی فەرمانبەرانی دەوڵەت و کەرتی گشتی، یاسای سزادانی عێراقی لەو بەشەی پەیوەندی بە تاوانەکانی پێشێل کردنی ئەرکەکانی فەرمانبەری هەیە، یاساکانی پەیوەست بە تۆمارکردنی خانووبەرە (یاسای تۆمارکردنی خانووبەرە، یاسای دیاریکردنی نرخی خانووبەرە و سودەکانی، یاسای وەبەرهێنان، یاسای بەکرێدانی خانووبەرە، یاسای تایبەت بە میرانە)، یاسای شارستانی.
     <br/><br/>
-    شارەزایی باش لە داڕشتنی گرێبەستی (کارکردن، کڕین و فرۆشتن، بەکرێدان)، گرێبەستی ئەلیکترۆنی و کارکردن بە ئامرازی ئینترنێت و ئامێری ئەلیکترۆنی. سەرۆکایەتی چەندین لیژنەی جۆراوجۆرم کردووە، لەوانە: لیژنەی لێکۆڵینەوە، ئامادەکردنی گرێبەستی خزمەتگوزاری، ئامادەکردنی تەندەر، کڕین. بەشداری دادبینی داواکاری میریەکام کردووە وەک بریکاری وەزیری پەیوەندیدار و بریکاری بەڕێوەبەرایەتی پەیوەندیدار. شارەزایی باشم لە زمانی عەرەبیدا هەیە، لە تێگەیشتن و شیکردنەوەی یاسای عێراقی.
-  </p>
+    شارەزایی باش لە داڕشتنی گرێبەست (کارکردن، کڕین و فرۆشتن، بەکرێدان)، گرێبەستی ئەلیکترۆنی و کارکردن بە ئامرازی ئینترنێت. سەرۆکایەتی چەندین لیژنەی جۆراوجۆرم کردووە، لەوانە: لیژنەی لێکۆڵینەوە، ئامادەکردنی گرێبەستی خزمەتگوزاری، ئامادەکردنی تەندەر، کڕین. بەشداری دادبینی داواکاری میریەکام کردووە وەک بریکاری وەزیری پەیوەندیدار. شارەزایی باشم لە زمانی عەرەبیدا هەیە و لە تێگەیشتن و شیکردنەوەی یاسای عێراقی.
+  </div>
 </section>
 
-<!-- PROJECTS & WRITINGS -->
+<!-- PROJECTS -->
 <section id="projects">
-  <h2>📚 پڕۆژەکانم و نووسینەکانم</h2>
-  <div class="projects-toolbar">
-    <button class="btn-add" onclick="openModal('writing')">📝 دەتەوێت نووسینێکی نوێ زیاد بکەیت؟</button>
-    <button class="btn-add-project" onclick="openModal('project')">➕ پڕۆژەی نوێ زیاد بکە</button>
+  <div class="sec-title">📚 پڕۆژەکانم و نووسینەکانم</div>
+  <div class="proj-toolbar">
+    <button class="btn-w" onclick="openAdd('writing')">📝 دەتەوێت نووسینێکی نوێ زیاد بکەیت؟</button>
+    <button class="btn-p" onclick="openAdd('project')">➕ پڕۆژەی نوێ زیاد بکە</button>
   </div>
-  <div class="items-grid" id="itemsGrid">
-    <!-- cards appear here -->
-  </div>
+  <div class="cards-grid" id="grid"></div>
 </section>
-
-<!-- ADD MODAL -->
-<div class="modal-overlay" id="addModal">
-  <div class="modal">
-    <h3 id="modalTitle">نووسینی نوێ</h3>
-    <input type="text" id="itemTitle" placeholder="ناونیشان" />
-    <textarea id="itemContent" placeholder="ناوەڕۆک..."></textarea>
-    <div class="modal-btns">
-      <button class="btn-cancel" onclick="closeModal()">هەڵوەشاندنەوە</button>
-      <button class="btn-save" onclick="saveItem()">پاشەکەوتکردن</button>
-    </div>
-  </div>
-</div>
-
-<!-- READ MORE MODAL -->
-<div class="read-modal-overlay" id="readModal">
-  <div class="read-modal">
-    <h3 id="readTitle"></h3>
-    <p id="readContent"></p>
-    <button class="close-read" onclick="closeReadModal()">داخستن</button>
-  </div>
-</div>
 
 <!-- CONTRACTS -->
 <section id="contracts">
-  <h2>📄 نمونەی گرێبەستەکان</h2>
-  <div class="contracts-grid">
-
-    <div class="contract-card" onclick="openContract('buy')">
-      <div class="icon">🏠</div>
+  <div class="sec-title">📄 نمونەی گرێبەستەکان</div>
+  <div class="con-grid">
+    <div class="con-card" onclick="showCon('buy')">
+      <div class="ico">🏠</div>
       <h3>گرێبەستی کڕین و فرۆشتن</h3>
       <p>نمونەی ئامادەکراوی گرێبەستی کڕین و فرۆشتنی خانووبەرە</p>
     </div>
-
-    <div class="contract-card" onclick="openContract('rent')">
-      <div class="icon">🔑</div>
+    <div class="con-card" onclick="showCon('rent')">
+      <div class="ico">🔑</div>
       <h3>گرێبەستی بەکرێدان</h3>
       <p>نمونەی ئامادەکراوی گرێبەستی بەکرێدانی خانووبەرە</p>
     </div>
-
-    <div class="contract-card" onclick="openContract('work')">
-      <div class="icon">💼</div>
+    <div class="con-card" onclick="showCon('work')">
+      <div class="ico">💼</div>
       <h3>گرێبەستی کارکردن</h3>
-      <p>نمونەی ئامادەکراوی گرێبەستی کارکردن و دامەزراندن</p>
+      <p>نمونەی ئامادەکراوی گرێبەستی کارکردن</p>
     </div>
-
-    <div class="contract-card" onclick="openContract('service')">
-      <div class="icon">🤝</div>
+    <div class="con-card" onclick="showCon('service')">
+      <div class="ico">🤝</div>
       <h3>گرێبەستی خزمەتگوزاری</h3>
       <p>نمونەی ئامادەکراوی گرێبەستی دەستەبەرکردنی خزمەتگوزاری</p>
     </div>
-
   </div>
 </section>
 
-<!-- CONTRACT MODAL -->
-<div class="contract-modal-overlay" id="contractModal">
-  <div class="contract-modal">
-    <h3 id="contractTitle"></h3>
-    <pre id="contractContent"></pre>
-    <button class="close-contract" onclick="closeContract()">داخستن</button>
-  </div>
-</div>
-
 <!-- CONTACT -->
 <section id="contact">
-  <h2>📞 پەیوەندی کردن</h2>
-  <div class="contact-cards">
-    <div class="contact-item">
-      <div class="icon">📧</div>
-      <p>ئیمەیڵ</p>
+  <div class="sec-title">📞 پەیوەندی کردن</div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="ico">📧</div>
+      <h4>ئیمەیڵ</h4>
       <a href="mailto:ibrahimsorkan4@gmail.com">ibrahimsorkan4@gmail.com</a>
     </div>
-    <div class="contact-item">
-      <div class="icon">📱</div>
-      <p>Viber</p>
-      <a href="#">ibrahimsorkan4@gmail.com</a>
+    <div class="contact-card">
+      <div class="ico">📱</div>
+      <h4>Viber</h4>
+      <p>ibrahimsorkan4@gmail.com</p>
     </div>
-    <div class="contact-item">
-      <div class="icon">💬</div>
-      <p>WhatsApp</p>
-      <a href="#">ibrahimsorkan4@gmail.com</a>
+    <div class="contact-card">
+      <div class="ico">💬</div>
+      <h4>WhatsApp</h4>
+      <p>ibrahimsorkan4@gmail.com</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© ٢٠٢٦ — <span>ابراهیم حمدامین سۆرکان</span> — هەموو مافەکان پارێزراون</p>
+  <p>© ٢٠٢٦ &nbsp;|&nbsp; <span>ابراهیم حمدامین سۆرکان</span> &nbsp;|&nbsp; هەموو مافەکان پارێزراون</p>
 </footer>
 
+<!-- ADD MODAL -->
+<div class="overlay" id="addOv">
+  <div class="mbox">
+    <h3 id="addT">نووسینی نوێ</h3>
+    <input type="text" id="inp_title" placeholder="ناونیشان..."/>
+    <textarea id="inp_content" placeholder="ناوەڕۆک..."></textarea>
+    <div class="mbox-actions">
+      <button class="btn-cancel" onclick="closeAdd()">هەڵوەشاندنەوە</button>
+      <button class="btn-save" onclick="saveItem()">✅ پاشەکەوتکردن</button>
+    </div>
+  </div>
+</div>
+
+<!-- READ MODAL -->
+<div class="overlay" id="readOv">
+  <div class="rbox">
+    <h3 id="readT"></h3>
+    <p id="readC"></p>
+    <button class="btn-close-o" onclick="closeRead()">داخستن ✕</button>
+  </div>
+</div>
+
+<!-- CONTRACT MODAL -->
+<div class="overlay" id="conOv">
+  <div class="cbox">
+    <h3 id="conT"></h3>
+    <pre id="conC"></pre>
+    <button class="btn-close-b" onclick="closeCon()">داخستن ✕</button>
+  </div>
+</div>
+
 <script>
-  // ===== ITEMS (Writings & Projects) =====
-  let items = JSON.parse(localStorage.getItem('ibrahim_items') || '[]');
-  let currentType = 'writing';
+// ---- ITEMS ----
+var items = JSON.parse(localStorage.getItem('ib_items') || '[]');
+var addType = 'writing';
 
-  function saveToStorage() {
-    localStorage.setItem('ibrahim_items', JSON.stringify(items));
+function save(){ localStorage.setItem('ib_items', JSON.stringify(items)); }
+
+function render(){
+  var g = document.getElementById('grid');
+  if(!items.length){
+    g.innerHTML = '<p class="empty-msg">هێشتا هیچ نووسین یان پڕۆژەیەک زیادنەکراوە.</p>';
+    return;
   }
-
-  function renderItems() {
-    const grid = document.getElementById('itemsGrid');
-    grid.innerHTML = '';
-    if (items.length === 0) {
-      grid.innerHTML = '<p style="color:#888;font-size:1rem;">هێشتا هیچ نووسین یان پڕۆژەیەک زیادنەکراوە.</p>';
-      return;
-    }
-    items.forEach((item, index) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      const preview = item.content.length > 120 ? item.content.slice(0,120) + '...' : item.content;
-      card.innerHTML = `
-        <button class="delete-btn" onclick="deleteItem(${index})" title="سڕینەوە">✕</button>
-        <span class="card-tag ${item.type === 'writing' ? 'tag-writing' : 'tag-project'}">
-          ${item.type === 'writing' ? '✍️ نووسین' : '📁 پڕۆژە'}
-        </span>
-        <h3>${item.title}</h3>
-        <p>${preview}</p>
-        ${item.content.length > 120 ? `<button class="read-more" onclick="openReadModal(${index})">🔍 زیاتر بخوێنەوە</button>` : ''}
-      `;
-      grid.appendChild(card);
-    });
+  var html = '';
+  for(var i=0;i<items.length;i++){
+    var it = items[i];
+    var prev = it.content.length > 130 ? it.content.slice(0,130)+'...' : it.content;
+    var isPrj = it.type === 'project';
+    html += '<div class="item-card'+(isPrj?' is-project':'')+'">'+
+      '<button class="btn-del" onclick="delItem('+i+')">✕</button>'+
+      '<span class="badge '+(isPrj?'badge-p':'badge-w')+'">'+(isPrj?'📁 پڕۆژە':'✍️ نووسین')+'</span>'+
+      '<h3>'+it.title+'</h3>'+
+      '<p>'+prev+'</p>'+
+      (it.content.length>130?'<button class="btn-more" onclick="openRead('+i+')">🔍 زیاتر بخوێنەوە</button>':'')+
+    '</div>';
   }
+  g.innerHTML = html;
+}
 
-  function openModal(type) {
-    currentType = type;
-    document.getElementById('modalTitle').textContent =
-      type === 'writing' ? '📝 نووسینی نوێ زیاد بکە' : '➕ پڕۆژەی نوێ زیاد بکە';
-    document.getElementById('itemTitle').value = '';
-    document.getElementById('itemContent').value = '';
-    document.getElementById('addModal').classList.add('active');
+function openAdd(t){
+  addType = t;
+  document.getElementById('addT').textContent = t==='writing'?'📝 نووسینی نوێ زیاد بکە':'➕ پڕۆژەی نوێ زیاد بکە';
+  document.getElementById('inp_title').value = '';
+  document.getElementById('inp_content').value = '';
+  document.getElementById('addOv').classList.add('open');
+}
+function closeAdd(){ document.getElementById('addOv').classList.remove('open'); }
+
+function saveItem(){
+  var t = document.getElementById('inp_title').value.trim();
+  var c = document.getElementById('inp_content').value.trim();
+  if(!t||!c){ alert('تکایە ناونیشان و ناوەڕۆک پڕبکەوە!'); return; }
+  items.unshift({title:t, content:c, type:addType});
+  save(); render(); closeAdd();
+}
+
+function delItem(i){
+  if(confirm('دڵنیایت لە سڕینەوە؟')){ items.splice(i,1); save(); render(); }
+}
+
+function openRead(i){
+  document.getElementById('readT').textContent = items[i].title;
+  document.getElementById('readC').textContent = items[i].content;
+  document.getElementById('readOv').classList.add('open');
+}
+function closeRead(){ document.getElementById('readOv').classList.remove('open'); }
+
+// ---- CONTRACTS ----
+var cons = {
+  buy:{
+    t:'🏠 گرێبەستی کڕین و فرۆشتن',
+    c:'گرێبەستی کڕین و فرۆشتنی خانووبەرە\n\nلەنێوان:\nیەکەم (فرۆشیار): ناو: .............. ناسنامە: ..............\nدووەم (کڕیار):   ناو: .............. ناسنامە: ..............\n\nمادەی یەکەم — بابەتی گرێبەست:\n  جۆر: ..............\n  شوێن: ..............\n  ئەندازە: .............. مەترەی چوارگۆشە\n  ژمارەی تۆمار: ..............\n\nمادەی دووەم — نرخ و پارەدان:\n  نرخی گشتی: .............. دینار\n  شێوازی پارەدان: ..............\n\nمادەی سێیەم — پابەندبوون:\n  فرۆشیار پابەند بە گواستنەوەی خانووبەرەکە دەبێت لە ماوەی ...... رۆژدا.\n  کڕیار پابەند بە پارەدانی تەواو دەبێت لەگەڵ واژووکردن.\n\nواژووی فرۆشیار: ..............    بەروار: ..............\nواژووی کڕیار:   ..............    بەروار: ..............'
+  },
+  rent:{
+    t:'🔑 گرێبەستی بەکرێدان',
+    c:'گرێبەستی بەکرێدانی خانووبەرە\n\nلەنێوان:\nیەکەم (کرێدەر): ناو: .............. ناسنامە: ..............\nدووەم (کرێگر):  ناو: .............. ناسنامە: ..............\n\nمادەی یەکەم — بابەتی گرێبەست:\n  جۆری خانووبەرە: ..............\n  شوێن: ..............\n  ئەندازە: .............. مەترەی چوارگۆشە\n\nمادەی دووەم — ماوە و کرێ:\n  لە: .............. بۆ: ..............\n  کرێی مانگانە: .............. دینار\n\nمادەی سێیەم — مەرجەکان:\n  کرێگر مافی گۆڕینی مەبەستی خانووبەرەکەی نییە بەبێ ڕەزامەندی کرێدەر.\n  ئاگادارکردنەوەی کۆتایی گرێبەست: ...... مانگ پێشوەختە.\n\nواژووی کرێدەر: ..............    بەروار: ..............\nواژووی کرێگر:  ..............    بەروار: ..............'
+  },
+  work:{
+    t:'💼 گرێبەستی کارکردن',
+    c:'گرێبەستی کارکردن\n\nلەنێوان:\nیەکەم (کارفەرما): ناو: .............. ناسنامە: ..............\nدووەم (کارکەر):   ناو: .............. ناسنامە: ..............\n\nمادەی یەکەم — جۆری کار:\n  پەیوەندی کار: ..............\n  شوێنی کار: ..............\n  کاتی کار: ..............\n\nمادەی دووەم — مووچە:\n  مانگانە: .............. دینار\n  شێوازی پارەدان: ..............\n\nمادەی سێیەم — ماوەی گرێبەست:\n  لە: .............. بۆ: ..............\n\nمادەی چوارەم:\n  کارفەرما مافی کۆتایی هێنان بە گرێبەستەکەی هەیە بە ئاگادارکردنی ...... رۆژ پێشوەختە.\n\nواژووی کارفەرما: ..............    بەروار: ..............\nواژووی کارکەر:   ..............    بەروار: ..............'
+  },
+  service:{
+    t:'🤝 گرێبەستی خزمەتگوزاری',
+    c:'گرێبەستی دەستەبەرکردنی خزمەتگوزاری\n\nلەنێوان:\nیەکەم (خزمەتگوزار): ناو: .............. ناسنامە: ..............\nدووەم (خزمەتگیر):   ناو: .............. ناسنامە: ..............\n\nمادەی یەکەم — خزمەتگوزاری:\n  جۆری خزمەتگوزاری: ..............\n  ماوەی ئەنجامدان: ..............\n\nمادەی دووەم — کرێ:\n  کرێی گشتی: .............. دینار\n  شێوازی پارەدان: ..............\n\nمادەی سێیەم — پابەندبوون:\n  خزمەتگوزار پابەند بە ئەنجامدانی خزمەتگوزاری لە ماوەی دیاریکراودا دەبێت.\n  خزمەتگیر پابەند بە پارەدان دەبێت دوای تەواوبوونی کار.\n\nواژووی خزمەتگوزار: ..............    بەروار: ..............\nواژووی خزمەتگیر:   ..............    بەروار: ..............'
   }
+};
 
-  function closeModal() {
-    document.getElementById('addModal').classList.remove('active');
-  }
+function showCon(k){
+  document.getElementById('conT').textContent = cons[k].t;
+  document.getElementById('conC').textContent = cons[k].c;
+  document.getElementById('conOv').classList.add('open');
+}
+function closeCon(){ document.getElementById('conOv').classList.remove('open'); }
 
-  function saveItem() {
-    const title = document.getElementById('itemTitle').value.trim();
-    const content = document.getElementById('itemContent').value.trim();
-    if (!title || !content) {
-      alert('تکایە ناونیشان و ناوەڕۆک پڕبکەوە!');
-      return;
-    }
-    items.unshift({ title, content, type: currentType });
-    saveToStorage();
-    renderItems();
-    closeModal();
-  }
-
-  function deleteItem(index) {
-    if (confirm('دڵنیایت لە سڕینەوەی ئەم بابەتە؟')) {
-      items.splice(index, 1);
-      saveToStorage();
-      renderItems();
-    }
-  }
-
-  function openReadModal(index) {
-    document.getElementById('readTitle').textContent = items[index].title;
-    document.getElementById('readContent').textContent = items[index].content;
-    document.getElementById('readModal').classList.add('active');
-  }
-
-  function closeReadModal() {
-    document.getElementById('readModal').classList.remove('active');
-  }
-
-  // ===== CONTRACTS =====
-  const contractData = {
-    buy: {
-      title: '🏠 گرێبەستی کڕین و فرۆشتن',
-      content: `گرێبەستی کڕین و فرۆشتنی خانووبەرە
-
-لەنێوان:
-یەکەم: فرۆشیار: ناو: .............. ناسنامە: ..............
-دووەم: کڕیار: ناو: .............. ناسنامە: ..............
-
-پاڵپشتی گرێبەست:
-مادەی یەکەم: فرۆشیار ئەو خانووبەرەی خوارەوە دەفرۆشێت بە کڕیار:
-- جۆری خانووبەرە: ..............
-- شوێن: ..............
-- ئەندازە: ..............
-- زانیاری تۆمارکردن: ..............
-
-مادەی دووەم - نرخ و شێوازی پارەدان:
-- نرخی گشتی: .............. دینار
-- شێوازی پارەدان: ..............
-
-مادەی سێیەم - پابەندبوونەکان:
-- فرۆشیار پابەند بە گواستنەوەی خانووبەرەکە دەبێت لە ماوەی ...... رۆژدا.
-- کڕیار پابەند بە پارەدانی تەواو دەبێت لەگەڵ واژووکردنی گرێبەستەکە.
-
-مادەی چوارەم - مەرجەکان:
-ئەم گرێبەستە بە رووی یاساوە دروستە و هەر دوو لای پابەندی بەو مەرجانەن.
-
-واژووی فرۆشیار: ..............    بەرواری: ..............
-واژووی کڕیار: ..............      بەرواری: ..............
-`
-    },
-    rent: {
-      title: '🔑 گرێبەستی بەکرێدان',
-      content: `گرێبەستی بەکرێدانی خانووبەرە
-
-لەنێوان:
-یەکەم: کرێدەر: ناو: .............. ناسنامە: ..............
-دووەم: کرێگر: ناو: .............. ناسنامە: ..............
-
-مادەی یەکەم - بابەتی گرێبەست:
-کرێدەر خانووبەرەی خوارەوە دەدات بە کرێی کرێگر:
-- جۆری خانووبەرە: ..............
-- شوێن: ..............
-- ئەندازە: ..............
-
-مادەی دووەم - ماوە و کرێ:
-- کاتی گرێبەست لە: .............. بۆ: ..............
-- کرێی مانگانە: .............. دینار
-- شێوازی پارەدان: ..............
-
-مادەی سێیەم - مەرجەکان:
-- کرێگر مافی گۆڕینی مەبەستی خانووبەرەکەی نییە بەبێ ڕەزامەندی کرێدەر.
-- کرێدەر پابەند دەبێت بە بڵاو نەکردنەوەی کرێگر بێ ئاگادارکردنی پێشوەختە.
-
-واژووی کرێدەر: ..............    بەرواری: ..............
-واژووی کرێگر: ..............      بەرواری: ..............
-`
-    },
-    work: {
-      title: '💼 گرێبەستی کارکردن',
-      content: `گرێبەستی کارکردن
-
-لەنێوان:
-یەکەم: کارفەرما: ناو: .............. ناسنامە: ..............
-دووەم: کارکەر: ناو: .............. ناسنامە: ..............
-
-مادەی یەکەم - کار:
-کارکەر دەبێت ئەم کارانەی خوارەوە ئەنجام بدات:
-- جۆری کار: ..............
-- شوێنی کار: ..............
-- کاتی کار: ..............
-
-مادەی دووەم - مووچە:
-- مووچەی مانگانە: .............. دینار
-- شێوازی پارەدان: ..............
-
-مادەی سێیەم - ماوەی گرێبەست:
-لە: .............. بۆ: ..............
-
-مادەی چوارەم - مافەکان و ئەرکەکان:
-- کارفەرما مافی کۆتایی هێنان بە گرێبەستەکەی هەیە لەگەڵ ئاگادارکردنی پێشوەختەی ...... رۆژ.
-- کارکەر مافی مانەوەی لەگەڵ مووچە و مافی یاساییەکانی هەیە.
-
-واژووی کارفەرما: ..............    بەرواری: ..............
-واژووی کارکەر: ..............       بەرواری: ..............
-`
-    },
-    service: {
-      title: '🤝 گرێبەستی خزمەتگوزاری',
-      content: `گرێبەستی دەستەبەرکردنی خزمەتگوزاری
-
-لەنێوان:
-یەکەم: خزمەتگوزار: ناو: .............. ناسنامە: ..............
-دووەم: خزمەتگیر: ناو: .............. ناسنامە: ..............
-
-مادەی یەکەم - خزمەتگوزاری:
-خزمەتگوزار ئەم خزمەتگوزارییانەی خوارەوە پێشکەش دەکات:
-- جۆری خزمەتگوزاری: ..............
-- ماوەی ئەنجامدان: ..............
-- ئاستی کوالیتی: ..............
-
-مادەی دووەم - کرێی خزمەتگوزاری:
-- کرێی گشتی: .............. دینار
-- شێوازی پارەدان: ..............
-
-مادەی سێیەم - پابەندبوون:
-- خزمەتگوزار پابەند بە ئەنجامدانی خزمەتگوزاری لە ماوەی دیاریکراودا دەبێت.
-- خزمەتگیر پابەند بە پارەدان دەبێت دوای ئەنجامدانی کارەکە.
-
-واژووی خزمەتگوزار: ..............    بەرواری: ..............
-واژووی خزمەتگیر: ..............       بەرواری: ..............
-`
-    }
-  };
-
-  function openContract(type) {
-    document.getElementById('contractTitle').textContent = contractData[type].title;
-    document.getElementById('contractContent').textContent = contractData[type].content;
-    document.getElementById('contractModal').classList.add('active');
-  }
-
-  function closeContract() {
-    document.getElementById('contractModal').classList.remove('active');
-  }
-
-  // Close modals on overlay click
-  document.getElementById('addModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
+// Close on backdrop
+['addOv','readOv','conOv'].forEach(function(id){
+  document.getElementById(id).addEventListener('click', function(e){
+    if(e.target === this) this.classList.remove('open');
   });
-  document.getElementById('readModal').addEventListener('click', function(e) {
-    if (e.target === this) closeReadModal();
-  });
-  document.getElementById('contractModal').addEventListener('click', function(e) {
-    if (e.target === this) closeContract();
-  });
+});
 
-  // Init
-  renderItems();
+// Init
+render();
 </script>
-
 </body>
 </html>
